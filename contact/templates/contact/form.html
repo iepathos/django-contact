@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src='{{ STATIC_URL }}js/contact.js'></script>
+<h2>Contact</h2>
+<form action='{% url contact_form %}' method='post' id='contact_form'>
+		<div id='ajaxwrapper'>
+		{% csrf_token %}
+		{{ form.non_field_errors }}
+		{{ form.as_p }}
+		<p id='sendwrapper'><input type='submit' value='Send' id='sendbutton' /></p>
+		</div>
+</form>
+{% endblock %}
